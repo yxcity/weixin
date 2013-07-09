@@ -1,0 +1,94 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+<title id="headtitle"">
+    经销商地图</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0;" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<meta content="email=no" name="format-detection" />
+<link rel="stylesheet" type="text/css" href="http://m.qiche4s.cn/css/style.css" />
+<script src="http://m.qiche4s.cn/js/jquery-1.4.4.min.js" type="text/javascript"></script>
+<!--<script src="../js/AddEvent.js" type="text/javascript"></script>-->
+
+</head>
+<body>
+    <header class="sub-header" id="sub-header">
+	<div class="sub-return-box"><a id="sub-return-box" href="javascript:void(0);" onclick="history.back();"> <div class="sub-return" id="sub-return"></div></a></div>
+	<h1>地图查看</h1>
+    <script type="text/javascript">
+        //返回按钮touch样式
+        var btnReturn = document.getElementById('sub-return');
+        $(btnReturn).unbind("touchstart");
+        $(btnReturn).unbind("touchend");
+        $(btnReturn).bind("touchstart", function () { this.className = 'sub-return sub-return-touch'; });
+        $(btnReturn).bind("touchend", function () { this.className = 'sub-return'; });
+    </script>    
+</header>
+
+    <div class="mhy-page">
+        <div class="big-map" id="map">
+            <!-- 地图 -->
+            <script src="http://dealer.bitauto.com/membersite/Js/baidumap/dealerMapLoad.min.js"></script>
+<script src="http://dealer.bitauto.com/membersite/Js/baidumap/dealerMap.min.js"></script>
+<script>
+    var mymap = new BitSoftMap('map'); 
+    mymap.Skin = 0; 
+    mymap.AddData(37.419947, 117.983199, '滨州市中益鼎顺汽车销售服务有限公司'); 
+    mymap.SetMap(12);     
+</script>
+
+        </div>
+    </div>
+    <script src="http://m.qiche4s.cn/js/anchor.js" type="text/javascript"></script>
+<footer id="footer">
+	<strong>滨州中益鼎顺</strong>
+	<span>触屏版 | <a href="http://dealer.bitauto.com/100046285/?fromdevice=true">电脑版</a></span>
+</footer>
+<script src="http://m.qiche4s.cn/js/IphoneHideMenu.js" type="text/javascript"></script>
+<script type="text/javascript">
+    var _bit_utk_i_id = 0; //是当前呈现的信息的id,比如新闻id之类，如果是非详情页，则为0.
+    var _bit_utk_m_id = 109; //模块ID
+    var _bit_utk_v_id = 100046285; //经销商ID
+    var _bit_utk_siteid = 100; //来源站点  1为会员页，2为新浪
+</script>
+<script language="javascript" type="text/javascript" src="http://log.dealer.bitauto.com/dealersite/pvlog.js"></script>
+
+    <script>
+    $(window).bind("load",function(){
+        var height = parseInt($(document.body).height()) - parseInt($("#footer").height()) - parseInt($("#sub-header").height()) ;
+        if ("onorientationchange" in window)
+        {
+            $(window).unbind("orientationchange");
+            $(window).bind("orientationchange",function(){
+                window.location.href = window.location.href;
+            });
+        }    
+        $(".mhy-page").css("min-height", 0);
+        $(".big-map").css("min-height", 0);
+        $(".mhy-page").css("height", height);
+        $(".big-map").css("height", height);
+   
+        mymap = new BitSoftMap('map');
+        mymap.Skin = 0; 
+        mymap.AddData(37.419947, 117.983199, '滨州市中益鼎顺汽车销售服务有限公司'); 
+        mymap.SetMap(12);
+//        alert(height);
+    });
+    
+    
+    </script>
+    <!-- START OF SmartSource Data Collector TAG -->
+<SCRIPT SRC="http://js.bitauto.com/dealer/webtrends/dcs_tag.js" TYPE="text/javascript"></SCRIPT>
+<!-- END OF SmartSource Data Collector TAG -->
+<script type="text/javascript">
+    var XCWebLogCollector = { area: '', brand: '', serial: '', car: '' };
+</script>
+<script type="text/javascript" src="http://g.yccdn.com"></script>
+</body>
+</html>

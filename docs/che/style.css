@@ -1,0 +1,406 @@
+@charset "utf-8";
+/*reset*/
+html, body, div, span, applet, object, iframe,
+	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+	a, abbr, acronym, address, big, cite, code,
+	del, dfn, em, img, ins, kbd, q, s, samp,
+	small, strike, strong, sub, sup, tt, var,
+	b, u, i, center,
+	dl, dt, dd, ol, ul, li,
+	fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td,
+	article, aside, canvas, details, embed, 
+	figure, figcaption, footer, header, hgroup, 
+	menu, nav, output, ruby, section, summary,
+	time, mark, audio, video {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font: inherit;
+		/*vertical-align: baseline;*/
+	}
+html{font-size:62.5%;}
+body{/*font-family:Helvetica, Arial, sans-serif; */background:#FFFFFF; line-height:150%; color:#333;}
+table{border-collapse:collapse; border-spacing:0}
+fieldset, img{border:0}
+legend{display:none}
+address, caption, cite, code, dfn, em, strong, th, var{font-style:normal; font-weight:normal}
+ol, ul{list-style:none}
+caption, th{text-align:left}
+h1, h2, h3, h4, h5, h6{font-size:100%; font-weight:normal}
+q:before, q:after{content:''}
+abbr, acronym{border:0}
+a{color:#1E4674; text-decoration:none;}
+a:focus{color:#CC0000; outline:none;}
+.clear{clear:both; height:0; overflow:hidden}
+/*reset end
+===================================================================================================================*/
+body{background:url(../images/mhy_bg.jpg) repeat;}
+html{-webkit-text-size-adjust:none; } /*禁用iphone中safari的字号自动调整*/
+input[type="text"], input[type="button"], input[type="submit"]{-webkit-appearance:none; border-radius:0;} /*去除iphone默认样式（input的圆角）*/
+input[type="checkbox"]{margin:0 3px 3px 4px;}
+img{max-width:100%;} /*液态图片*/
+
+.cRed{color:#CC0000;}
+
+/*a{-webkit-tap-highlight-color:rgba(0,0,0,0);}*/
+
+.mhy-page{width:100%; font-size:1.4rem; min-height:371px; /*padding-top:45px;*/}
+.mhy-line-box{width:100%; height:auto; clear:both; overflow:hidden; margin-bottom:10px;}
+
+header{font-size:1.4rem;}
+/*二级头*/
+.sub-header{width:100%; height:44px; border-bottom:1px solid #191E24; background:#3B4553; overflow:hidden; /*position:fixed; top:0; left:0; z-index:10*/}
+/*.sub-header .sub-return{width:15%; height:44px; background:#2F3742 url(../images/mhy_btn_return.png) no-repeat center center; background-size:27px 20px; border-right:1px solid #232932; float:left;}*/
+.sub-header .sub-return-box{border-right:1px solid #626A75; width:49px; position:absolute; top:0; left:0;}
+.sub-header .sub-return{width:48px; height:44px; background:#242B34 url(../images/mhy_btn_return.png) no-repeat center center; background-size:27px 20px; border-right:1px solid #232932;}
+.sub-header .sub-return-touch{/*background-image:url(../images/mhy_btn_return_touch.png); */background-color:#171C1F;}
+
+/*.sub-header h1{font-weight:bold; font-size:1.8rem; color:#FFFFFF; width:83%; height:44px; line-height:44px; text-align:center; float:left; border-left:1px solid #626A75;}*/
+.sub-header h1{font-weight:bold; font-size:1.8rem; color:#FFFFFF; width:100%; height:44px; line-height:44px; text-align:center; float:left; /*border-left:1px solid #626A75;*/}
+
+/*底部*/
+footer{width:100%; height:44px; line-height:44px; background:#3B4553; color:#AEBAC3; font-size:1.2rem;}
+footer strong{float:left; margin-left:10px;}
+footer span{float:right; margin-right:10px;}
+footer a{color:#FFFFFF;}
+
+/*首页*/
+.index-body-bg{background:#FFFFFF;}
+.index-header{width:100%; height:195px; border-bottom:2px solid #309100; background:#588CA5 url(../images/mhy_header_pic.png) no-repeat top center; background-size:auto 195px; overflow:hidden;}
+.index-header a{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+.index-header-wrap{width:320px; margin:0 auto; position:relative;}
+.index-header-wrap .car-logo{width:auto; height:42px; background:rgba(0, 0, 0, 0.25); position:absolute; top:0; left:16px; border-bottom-left-radius:8px; border-bottom-right-radius:8px}
+.index-header-wrap .car-logo li{width:46px;/*width:auto; */height:42px; float:left; border-left:1px dotted #7495A4; padding:0 5px}
+.index-header-wrap .car-logo li:first-child{border-left:none;}
+.index-header-wrap .car-logo img{width:30px; height:30px; display:block; margin:5px auto 0;}
+/*.index-header-wrap .car-logo img{height:42px;}*/
+.index-header-wrap h2{font-size:1.8rem; font-weight:bold; color:#FFFFFF; text-shadow:1px 1px 1px #000000; padding:55px 0 0 16px; line-height:1.2}
+.index-header-wrap p{color:#FFFFFF; padding:5px 0 0 16px; text-shadow:1px 1px 1px #000000;}
+.index-header-wrap p.phone{font-size:1.8rem; font-weight:bold; padding-top:10px}
+.index-header-wrap p.address{font-size:1.2rem;}
+.index-header-wrap .btn-check-first{margin-left:15px;}
+.index-header-wrap .btn-check{width:80px; height:30px; background:rgba(0, 0, 0, 0.25); border-radius:25px; float:left; margin:15px 0 0 12px;}
+.index-header-wrap .btn-check-first{margin-left:15px;}
+.index-header-wrap .btn-check-call, .index-header-wrap .btn-check-map{width:72px; height:24px; border-radius:25px; margin:3px auto 0; box-shadow:1px 1px 1px #41392E; color:#FFFFFF; font-weight:bold; text-align:center; line-height:24px;}
+.index-header-wrap .btn-check-call{background:-webkit-gradient(linear, left top, left bottom, from(#3DB00A), to(#338B06)); background:-moz-linear-gradient(top, #3DB00A, #338B06); background:-ms-linear-gradient(top, #3DB00A, #338B06);}
+.index-header-wrap .btn-check-call-touch{background:-webkit-gradient(linear, left top, left bottom, from(#338B06), to(#3DB00A)); background:-moz-linear-gradient(top, #338B06, #3DB00A); background:-ms-linear-gradient(top, #338B06, #3DB00A);}
+.index-header-wrap .btn-check-call span{background:url(../images/mhy_ico_index_phone.png) no-repeat left center; background-size:17px 17px; padding-left:18px;}
+.index-header-wrap .btn-check-map{background:-webkit-gradient(linear, left top, left bottom, from(#616B75), to(#4C545B)); background:-moz-linear-gradient(top, #616B75, #4C545B); background:-ms-linear-gradient(top, #616B75, #4C545B);}
+.index-header-wrap .btn-check-map-touch{background:-webkit-gradient(linear, left top, left bottom, from(#3D444B), to(#606A74)); background:-moz-linear-gradient(top, #3D444B, #606A74); background:-ms-linear-gradient(top, #3D444B, #606A74);}
+.index-header-wrap .btn-check-map span{background:url(../images/mhy_ico_index_map.png) no-repeat left center; background-size:17px 17px; padding-left:17px;}
+
+/*首页wrap*/
+.index-page{width:100%; height:auto; background:#FFFFFF; font-size:1.4rem;}
+/*首页焦点图*/
+.index-focus-box{width:100%; height:118px; background:#F7F7F7; border-bottom:1px solid #E5E5E5; overflow:hidden;}
+
+.index-focus{width:300px; height:90px; overflow:hidden; margin:10px auto 0; position:relative;}
+.index-focus ul{position:absolute;}
+.index-focus ul li .car-pic-box{width:298px; height:88px; display:block; overflow:hidden; border:1px solid #DCDCDC;}
+.index-focus ul li{width:300px; height:88px; background:#FFFFFF; float:left;}
+.index-focus ul li .car-pic{width:120px; height:80px; float:left; position:relative; overflow:hidden; margin:5px 0 0 10px;}
+.index-focus ul li .car-pic .ico-hui{background:url(../images/mhy_ico_hui.png) no-repeat;}
+.index-focus ul li .car-pic .ico-huan{background:url(../images/mhy_ico_huan.png) no-repeat;}
+.index-focus ul li .car-pic .ico-hui, .index-focus ul li .car-pic .ico-huan{width:20px; height:20px; display:block; background-size:20px 20px; position:absolute; top:5px; left:0;}
+.index-focus ul li .v-line{width:1px; height:77px; border-left:1px dotted #DCDCDC; float:left; overflow:hidden; margin:5px 0 0 20px;}
+.index-focus ul li dl{text-align:center; line-height:22px; margin-top:12px}
+.index-focus ul li dt{font-weight:bold;}
+.index-focus ul li dd{color:#CCCCCC;}
+.index-focus ul li dd span{font-size:1.6rem; color:#339900; font-weight:bold; background:url(../images/mhy_ico_down.png) no-repeat left 4px; background-size:10px 10px; padding-left:15px}
+.index-focus ul li dd em{color:#999999; font-weight:bold;}
+.index-focus ul li dd strong{font-size:1.2rem; color:#CC0000; font-weight:bold;}
+.index-focus ul li dd:last-child{font-size:1.2rem; color:#999999;}
+
+/*.index-focus{width:94%; height:90px; overflow:hidden; margin:10px auto 0; position:relative;}
+.index-focus ul{position:absolute; width:100%;}
+.index-focus ul li .car-pic-box{width:298px; height:88px; margin:0 auto; display:block; overflow:hidden;}
+.index-focus ul li{width:99%; height:88px; background:#FFFFFF; float:left; border:1px solid #DCDCDC;}
+.index-focus ul li .car-pic{width:120px; height:80px; float:left; position:relative; overflow:hidden; margin:5px 0 0 10px;}
+.index-focus ul li .car-pic .ico-hui{background:url(../images/mhy_ico_hui.png) no-repeat;}
+.index-focus ul li .car-pic .ico-huan{background:url(../images/mhy_ico_huan.png) no-repeat;}
+.index-focus ul li .car-pic .ico-hui, .index-focus ul li .car-pic .ico-huan{width:20px; height:20px; display:block; background-size:20px 20px; position:absolute; top:5px; left:0;}
+.index-focus ul li .v-line{width:1px; height:77px; border-left:1px dotted #DCDCDC; float:left; overflow:hidden; margin:5px 0 0 20px;}
+.index-focus ul li dl{text-align:center; line-height:22px; margin-top:12px}
+.index-focus ul li dt{font-weight:bold;}
+.index-focus ul li dd{color:#CCCCCC;}
+.index-focus ul li dd span{font-size:1.6rem; color:#339900; font-weight:bold; background:url(../images/mhy_ico_down.png) no-repeat left 4px; background-size:10px 10px; padding-left:15px}
+.index-focus ul li dd em{color:#999999; font-weight:bold;}
+.index-focus ul li dd strong{font-size:1.2rem; color:#CC0000; font-weight:bold;}
+.index-focus ul li dd:last-child{font-size:1.2rem; color:#999999;}*/
+
+.index-focus-num{width:300px; position:relative; margin:5px auto 0;}
+.index-focus-num ul{float:left; position:relative; left:50%;}
+.index-focus-num ul li{width:8px; height:8px; background:url(../images/mhy_ico_focus_num.png) no-repeat; background-size:8px 8px; float:left; position:relative; left:-50%; margin-left:5px}
+.index-focus-num ul li.current{background-image:url(../images/mhy_ico_focus_num_current.png);}
+
+.index-news-list{width:94%; height:auto; font-size:1.6rem; margin:0 auto; padding-bottom:10px}
+.index-news-list li{width:100%; height:37px; border-bottom:1px solid #E5E5E5; line-height:37px;}
+.index-news-list li:last-child{border-bottom:none;}
+.index-news-list-more{width:100%; height:28px; line-height:28px; background:-webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#F0F0F0)); background:-moz-linear-gradient(top, #FFFFFF, #F0F0F0); background:-ms-linear-gradient(top, #FFFFFF, #F0F0F0); text-align:center; color:#2D4150; border:1px solid #DDDDDD; margin-top:5px;}
+.index-news-list-more-touch{background:-webkit-gradient(linear, left top, left bottom, from(#F0F0F0), to(#FFFFFF)); background:-moz-linear-gradient(top, #F0F0F0, #FFFFFF); background:-ms-linear-gradient(top, #F0F0F0, #FFFFFF);}
+
+.m-tabs-box{position:relative; border-top:1px solid #E5E5E5; overflow:hidden;}
+.m-tabs-box .more{position:absolute; top:13px; right:10px;}
+ul.m-tabs{width:100%; height:38px; background:#F7F7F7; border-bottom:3px solid #CCCCCC; border-top:1px solid #FFFFFF; font-size:1.8rem; color:#333; font-weight:bold;}
+ul.m-tabs li{float:left; margin:12px 0 0 10px;}
+ul.m-tabs li span{display:block; height:26px; padding:0 5px; color:#727F89;}
+ul.m-tabs li span s{display:none;}
+ul.m-tabs li.current{}
+ul.m-tabs li.current span{border-bottom:3px solid #67737D; color:#727F89;}
+ul.m-tabs li.current span s{display:block; width:0; height:4px; border:6px solid #67737D; border-color: #67737D #F7F7F7; border-width: 0 4px 4px 4px; margin:3px auto; 0}
+
+.mhy-pic-t-box{}
+.mhy-pic-t-box ul{width:100%; height:98px; border-bottom:1px dotted #E5E5E5}
+.mhy-pic-t-box li{width:33%; text-align:center; float:left;}
+.mhy-pic-t-box li img{width:90px; height:60px;}
+.mhy-pic-t-box li a.car-pic{width:90px; height:60px; display:block; position:relative; margin:0 auto 3px;}
+.mhy-pic-t-box li .ico-hui{background:url(../images/mhy_ico_hui.png) no-repeat;}
+.mhy-pic-t-box li .ico-huan{background:url(../images/mhy_ico_huan.png) no-repeat;}
+.mhy-pic-t-box li .ico-hui, .mhy-pic-t-box li .ico-huan{width:20px; height:20px; display:block; background-size:20px 20px; position:absolute; top:5px; right:0;}
+
+/*车型报价名片*/
+.car-price-card{width:94%; height:auto; background:#FFFFFF; border-width:2px 1px 1px 1px; border-style:solid; border-color:#99A6AF #CACED1 #CACED1 #CACED1; margin:10px auto; border-radius:8px;}
+.car-price-card h2{font-size:1.6rem; font-weight:bold; line-height:22px; width:90%; margin:10px auto 0;}
+.car-price-card .car-tags{color:#9BA6AE; font-size:1.2rem; width:90%; margin:0 auto; /*border-top:1px solid #E4E4E4;*/ padding:10px 0;}
+
+.car-price-card .car-prices-box2{width:100%; background:#F7F7F7; border-bottom-right-radius:8px; border-bottom-left-radius:8px; border-top:1px solid #E2E2E2;}
+.car-price-card .car-prices-box2 ul{color:#666666;}
+.car-price-card .car-prices-box2 ul li{width:94%; border-bottom:1px dashed #C0C6CA; margin:0 auto; padding:8px 0; clear:both; overflow:hidden;}
+.car-price-card .car-prices-box2 ul li:last-child{border-bottom:none;}
+.car-price-card .car-prices-box2 ul label{width:88px; float:left; text-align:right;}
+.car-price-card .car-prices-box2 ul span{color:#999999; float:left;}
+.car-price-card .car-prices-box2 ul span.sale{font-size:1.6rem; font-weight:bold; color:#CC0000;}
+.car-price-card .car-prices-box2 ul span.ico-sale{width:20px; height:20px; padding:0 0 0 5px; margin-top:-2px;}
+.car-price-card .car-prices-box2 ul span.ico-sale img{width:20px; height:20px;}
+
+.car-price-card .car-prices-box{width:100%; border-top:1px solid #B2B9BF;}
+.car-price-card .car-prices{width:auto; height:64px; border:1px solid #FFFFFF; border-bottom:none; border-bottom-right-radius:8px; border-bottom-left-radius:8px; background:-webkit-gradient(linear, left top, left bottom, from(#EEEEEE), to(#FFFFFF)); background:-moz-linear-gradient(top, #EEEEEE, #FFFFFF); background:-ms-linear-gradient(top, #EEEEEE, #FFFFFF); overflow:hidden;}
+.car-price-card .car-prices ul{float:left; width:98%; position:relative; left:50%;}
+.car-price-card .car-prices ul li{width:32.5%; height:100%; float:left; border-left:1px solid #FFFFFF; border-right:1px solid #CBCED1; text-align:center; position:relative; right:50%;}
+.car-price-card .car-prices ul li:first-child{border-left:none;}
+.car-price-card .car-prices ul li:last-child{border-right:none;}
+.car-price-card .car-prices ul li dt{color:#5B6975; font-size:1.2rem; width:92%; border-bottom:1px dashed #C0C6CA; margin:0 auto; height:30px; line-height:30px;}
+.car-price-card .car-prices ul li dt img{width:21px; height:21px; vertical-align:-6px;}
+.car-price-card .car-prices ul li dd{font-size:1.5rem; font-weight:bold; width:92%; border-top:1px dashed #FFFFFF; margin:0 auto; height:30px; line-height:30px; color:#475A68;}
+.car-price-card .car-prices ul li:first-child dd{color:#CC0000;}
+.car-price-card .car-prices ul li:last-child dd{color:#4A9748;}
+
+/*切换标签*/
+.tab-box{width:100%; height:40px; /*border-bottom:1px solid #B1BAC0;*/ overflow:hidden; position:relative;}
+.tab-box ul{width:94%; margin:0 auto; position:relative; z-index:2;}
+.tab-box ul li{width:48%; height:38px; float:left; border:1px solid #B1BAC0; border-top-left-radius:5px; border-top-right-radius:5px; font-size:1.8rem; text-align:center; color:#4B5C69; font-weight:bold;}
+.tab-box ul li:first-child{margin-right:7px;}
+.tab-box ul li span{width:100%; height:37px; line-height:37px; display:block; background:#F4F4F4; border-top:1px solid #FFFFFF; border-top-left-radius:5px; border-top-right-radius:5px;}
+.tab-box ul li.current{border-bottom-color:#FFFFFF}
+.tab-box ul li.current span{background:#FFFFFF;}
+.tab-box-line{width:100%; height:1px; background:#B1BAC0; overflow:hidden; font-size:0; line-height:0; clear:both; position:absolute; bottom:0px; left:0; z-index:1;}
+
+/*询价列表*/
+.xunjia-list{width:100%; height:auto; background:#FFFFFF; overflow:hidden;}
+.xunjia-list h3{font-size:1.6rem; font-weight:bold; width:94%; line-height:22px; margin:10px auto 0;}
+.xunjia-list .countdown{overflow:hidden; width:94%; margin:5px auto 0;}
+.xunjia-list .countdown-clock{width:21px; height:19px; float:left; background:#B1BAC0 url(../images/mhy_ico_clock.png) no-repeat center center; background-size:13px 13px; border-top-left-radius:5px; border-bottom-left-radius:5px;}
+.xunjia-list .countdown-time{height:19px; background:#EDEDED; border-top-right-radius:5px; border-bottom-right-radius:5px; color:#9BA6AE; line-height:19px; display:inline-block; padding:0 5px;}
+.xunjia-list .countdown-time b{font-weight:bold; color:#CC0000;}
+.xunjia-list ul{width:100%; margin:0 auto;}
+.xunjia-list li{padding:12px 0; border-top:1px solid #CCCCCC;}
+.xunjia-list li:last-child{border-bottom:1px solid #CCCCCC;}
+.xunjia-list li section{width:94%; display:block; overflow:hidden; margin:0 auto; position:relative;}
+.xunjia-list li:nth-child(odd){background:#F7F7F7;}
+.xunjia-list li strong{width:70%; color:#475563; font-size:1.6rem; line-height:20px; display:block; margin-bottom:10px}
+.xunjia-list li .new-price{font-size:1.6rem; color:#CC0000; font-weight:bold; /*padding-right:10px*/}
+.xunjia-list li .old-price{font-size:1.2rem; color:#999999; text-decoration:line-through; padding-left:5px;}
+.xunjia-list li .btn-xunjia{position:absolute; top:30%; right:10px;}
+.xunjia-list li span.btn-call{background:url(../images/mhy_ico_xunjia.png) no-repeat 9px 9px; background-size:14px 11px; display:block; text-align:right; padding-right:10px}
+.xunjia-list p{width:94%; margin:10px auto; text-indent:2em; line-height:22px; border-top:1px solid #E5E5E5; padding-top:10px}
+.xunjia-list p.info-cuxiao{border:none; padding-top:0}
+.xunjia-list em{display:block; color:#9BA6AE; font-size:1.2rem; margin-bottom:6px}
+.xunjia-list span img{width:21px; height:21px; vertical-align:-4px;}
+
+.xunjia-list-type2{margin-top:-6px; position:relative; z-index:1}
+.xunjia-list-type2 li:nth-child(odd){background:#FFFFFF;}
+.xunjia-list-type2 li:nth-child(even){background:#F7F7F7;}
+
+.btn-xunjia{width:66px; height:28px; display:block; border:1px solid #DDDDDD; background:-webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#F0F0F0)); background:-moz-linear-gradient(top, #FFFFFF, #F0F0F0); background:-ms-linear-gradient(top, #FFFFFF, #F0F0F0); text-align:center; color:#576773; border-radius:5px; line-height:28px;}
+/*.btn-xunjia:hover{background:-webkit-gradient(linear, left top, left bottom, from(#F0F0F0), to(#FFFFFF)); background:-moz-linear-gradient(top, #F0F0F0, #FFFFFF); background:-ms-linear-gradient(top, #F0F0F0, #FFFFFF);}*/
+/*.btn-xunjia img{width:8px; height:14px; vertical-align:middle;}*/
+
+/*配置*/
+.config{width:100%; height:auto; background:#FFFFFF; overflow:hidden; padding:15px 0;}
+.config table{border-bottom:1px solid #CCCCCC;}
+.config th, .config td{word-break:break-all;}
+.config th{width:100%; height:34px; background:#F7F7F7; border-top:1px solid #CCCCCC; font-weight:bold;}
+.config th span{padding-left:10px}
+.config td{padding:12px 10px; border-top:1px solid #CCCCCC; width:49%;}
+.config td span{color:#999999;}
+.config td p{padding-top:8px;}
+.config tr td:nth-child(odd){border-right:1px solid #CCCCCC;}
+.config td.car-color{}
+.config td.car-color li{float:left;width:15px;height:8px;border:1px solid #E6E6E6;padding:1px;margin:1px 3px 1px 0;}
+.config td.car-color li span{width:15px;height:8px;display:block;}
+
+/*头部锯齿*/
+.top-car-bg{width:100%; height:101px; background:url(../images/mhy_top_bg.png) repeat-x; background-size:auto 101px; overflow:hidden; position:relative; z-index:2}
+
+/*子品牌页名片*/
+.car-card{}
+.car-card-img{width:118px; height:73px; border:1px solid #D6D6D6; float:left; overflow:hidden; margin:10px 0 0 10px;}
+.car-card-img img{width:118px; height:73px;}
+.car-card dl{float:left; font-weight:bold; width:50%; margin:15px 0 0 10px;}
+.car-card dt{font-size:1.8rem; border-bottom:1px solid #CCCCCC; padding-bottom:8px}
+.car-card dd{color:#CC0000; border-top:1px solid #FFFFFF; padding-top:8px}
+
+/*询价*/
+.dealer-card{}
+.dealer-card dl{width:94%; margin:18px auto 0;}
+.dealer-card dt{font-size:1.8rem; border-bottom:1px solid #CCCCCC; padding-bottom:10px; line-height:20px}
+.dealer-card dd{color:#9BA6AE; border-top:1px solid #FFFFFF; padding-top:8px}
+
+.xunjia-form{width:100%; min-height:371px; background:#FFFFFF; position:relative; z-index:1; margin-top:-6px; padding:10px 0 30px}
+.xunjia-form ul{width:310px; height:auto; margin:0 auto;}
+.xunjia-form li{height:30px; margin:20px 0 0 0;}
+.xunjia-form strong{width:73px; display:block; text-align:right; float:left; margin:8px 0 0 0;}
+.xunjia-form span{float:left;}
+.xunjia-form input[type="text"]{width:222px; height:28px; border:1px solid #DDDDDD; padding-left:3px; -webkit-box-shadow:inset 0px 3px 3px #EEEEEE; -moz-box-shadow:inset 0px 3px 3px #EEEEEE;}
+.xunjia-form select{width:112px; height:30px;}
+
+.xunjia-form .xunjia-form-sex{height:20px;}
+.xunjia-form .xunjia-form-sex strong{margin-top:3px;}
+.xunjia-form .xunjia-form-alert{color:#CC0000; padding-left:73px; height:10px; margin-top:10px}
+/*.xunjia-form .xunjia-info{color:#B0B8BE; padding-left:96px; background:url(../images/mhy_ico_message_blue.png) no-repeat 75px 1px; background-size:19px 13px; height:13px;}*/
+.xunjia-form .xunjia-info{color:#B0B8BE; padding-left:96px; background:url(../images/mhy_ico_xunjia.png) no-repeat 75px 1px; background-size:18px 15px; height:15px;}
+.xunjia-form .xunjia-form-btn{width:230px; height:36px; background:#E3E3E3; margin-left:73px;}
+.xunjia-form .xunjia-form-btn input{width:100%; height:34px; border:none; border-bottom:1px solid #515B63; background:-webkit-gradient(linear, left top, left bottom, from(#798690), to(#59646E)); background:-moz-linear-gradient(top, #798690, #59646E); background:-ms-linear-gradient(top, #798690, #59646E); font-size:1.6rem; color:#FFFFFF;}
+
+
+.xunjia-form2{width:100%; min-height:371px; background:#FFFFFF;}
+.xunjia-form2 h2{width:100%; background:#F7F7F7; border-bottom:1px solid #CCCCCC; text-align:center; font-size:1.6rem; font-weight:bold; padding:13px 0; line-height:1.5}
+.xunjia-form2 ul{width:94%; margin:0 auto; overflow:hidden;}
+.xunjia-form2 ul select{height:30px; width:100%; font-size:1.4rem;}
+.xunjia-form2 ul li{padding:8px 0;}
+.xunjia-form2 ul li p{font-weight:bold; padding-bottom:8px;}
+.xunjia-form2 ul li.double-select select{width:49%;}
+.xunjia-form2 ul li.triple-select select{width:32%;}
+.xunjia-form2 ul li input{width:95%; height:28px; border:1px solid #DDDDDD; font-size:1.4rem; color:#666666; padding-left:5px}
+.xunjia-form2 ul li.contact input{width:95%; height:28px; border:1px solid #DDDDDD; font-size:1.4rem; color:#666666; padding-left:5px}
+.xunjia-form2 ul li.contact input:last-child{border-top:none;}
+.xunjia-form2 ul li.xunjia-info{color:#B0B8BE; background:url(../images/mhy_ico_xunjia.png) no-repeat left center; background-size:18px 15px; height:15px; padding-left:25px}
+
+.xunjia-form2 ul li.xunjia-form-btn{margin-bottom:20px}
+.xunjia-form2 ul li.xunjia-form-btn input{width:100%; height:34px; border:none; border-bottom:1px solid #515B63; background:-webkit-gradient(linear, left top, left bottom, from(#798690), to(#59646E)); background:-moz-linear-gradient(top, #798690, #59646E); background:-ms-linear-gradient(top, #798690, #59646E); font-size:1.6rem; color:#FFFFFF;}
+.xunjia-form2 ul li.xunjia-form-btn-touch input{background:-webkit-gradient(linear, left top, left bottom, from(#59646E), to(#798690)); background:-moz-linear-gradient(top, #59646E, #798690); background:-ms-linear-gradient(top, #59646E, #798690);}
+
+.zhihuan-form{}
+.zhihuan-form strong{width:100px;}
+.zhihuan-form input[type="text"]{width:180px;}
+.zhihuan-form .xunjia-form-alert{padding-left:100px}
+.zhihuan-form select{width:82px;}
+.zhihuan-form .zhihuan-three-select select{width:65px;}
+.zhihuan-form .zhihuan-input input[type="text"]{width:150px;}
+.zhihuan-form .xunjia-form-btn{width:200px; margin-left:100px;}
+.zhihuan-form .li-border-top{border-top:1px solid #DDDDDD; padding-top:15px;}
+
+/*促销新闻*/
+.car-news{}
+.car-news .countdown{width:auto; padding:2px 0 0 10px;}
+.car-news li strong{width:90%;}
+.car-news li span{float:left;}
+
+/*新闻正文页*/
+.car-news-list{}
+.car-news-list p{border:none; padding-top:5px}
+.car-news-list p.reward-tt{width:100%; text-indent:0; text-align:left; /*border-top:1px solid #CCCCCC;*/ font-size:1.4rem; /*padding:10px 0 0 0;*/}
+.car-news-list p.reward-tt span{display:block; width:94%; margin:0 auto;}
+.car-news-list li:last-child{border-bottom:1px solid #CCCCCC;}
+.car-news-list ul.reward-list{}
+.car-news-list ul.reward-list li{position:relative; line-height:1.2}
+/*.car-news-list ul.reward-list li:first-child{border-top:none;}*/
+.car-news-list ul.reward-list li:nth-child(odd){background:#FFFFFF;}
+.car-news-list ul.reward-list li:nth-child(even){background:#F7F7F7;}
+.car-news-list ul.reward-list li span{font-size:1.6rem; color:#465463; float:left; width:75%;}
+.car-news-list ul.reward-list li small{color:#CC0000; font-weight:bold; position:absolute; right:0;}
+
+/*经销商小地图*/
+.dealer-map-box{width:94%; /*height:233px;*/ border:1px solid #E5E5E5; margin:10px auto;}
+.dealer-map-box .dealer-map{width:100%; height:175px; overflow:hidden; border-bottom:1px solid #E5E5E5}
+/*.dealer-map-box .dealer-address{width:100%; height:52px; background:-webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#F0F0F0)); background:-moz-linear-gradient(top, #FFFFFF, #F0F0F0); background:-ms-linear-gradient(top, #FFFFFF, #F0F0F0); padding-top:5px}*/
+.dealer-map-box .dealer-address{width:100%; height:auto; background:-webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#F0F0F0)); background:-moz-linear-gradient(top, #FFFFFF, #F0F0F0); background:-ms-linear-gradient(top, #FFFFFF, #F0F0F0); padding:5px 0 25px}
+.dealer-map-box .dealer-address dl{padding:5px 10px 0 10px; line-height:20px; clear:both;}
+.dealer-map-box .dealer-address dt{float:left; color:#999999; width:45px;}
+.dealer-map-box .dealer-address dd{width:80%; float:left;}
+.dealer-map-box .dealer-address dd strong{font-weight:bold; color:#CC0000;}
+
+/*焦点图*/
+.m-focus{width:300px; height:190px; overflow:hidden; margin:10px auto 0; position:relative;}
+.m-focus-scroll-box{width:300px; height:190px; overflow:hidden; position:relative;}
+.m-focus-scroll-box ul{width:5000px; margin:auto;}
+.m-focus-scroll-box ul li{padding:0; border:none; float:left; overflow:hidden;}
+.m-focus-scroll-box ul li a{overflow:hidden; text-decoration:none;}
+.m-focus-scroll-box img{width:300px; height:190px;}
+.m-focus-num{width:300px; position:absolute; padding:10px 0 0 0; bottom:5px; left:0; overflow:hidden;}
+.m-focus-num ul{float:left; position:relative; left:50%; width:auto; margin:auto;}
+.m-focus-num li{float:left;font-size:0;line-height:0;width:0;height:0;border-radius:40px;border:4px solid #CCC;position:relative;left:-50%;margin-right:10px; padding:0;}
+.m-focus-num li:last-child{border-bottom:4px solid #CCC;}
+.m-focus-num li.current{border-color:#C00;}
+
+/*经销商地图*/
+.big-map{width:100%; min-height:371px; overflow:hidden; background:#FFFFFF;}
+
+/*关于我们*/
+.about-us{width:100%; min-height:371px; background:#FFFFFF; overflow:hidden;}
+.about-us p{width:94%; margin:10px auto 0; line-height:24px; text-indent:2em; font-size:1.6rem;}
+
+/*浮动层*/
+.fixed-box{width:94%; height:38px; background:#606F79; opacity:0.9; position:fixed; left:0; right:0; bottom:10px; margin:auto; border-radius:8px; z-index:99; font-size:1.6rem; color:#FFFFFF;}
+.fixed-box a{color:#FFFFFF; text-decoration:none;}
+.fixed-box ul{width:100%; float:left; position:relative; left:50%;}
+.fixed-box ul li{width:49%; height:38px; line-height:38px; float:left; position:relative; right:50%; text-align:center;}
+/*.fixed-box ul li.xunjia-phone{background:url(../images/mhy_ico_phone.png) no-repeat 190px center; background-size:28px 28px;}*/
+.fixed-box ul li.xunjia-phone img{width:28px; height:28px; vertical-align:-8px;}
+/*.fixed-box ul li.xunjia-message{background:url(../images/mhy_ico_message.png) no-repeat 180px center; background-size:30px 20px;}*/
+.fixed-box ul li.xunjia-message img{width:30px; height:20px; vertical-align:-5px}
+
+.fixed-box ul li:first-child{border-right:1px solid #53636F; border-top-left-radius:8px; border-bottom-left-radius:8px;}
+.fixed-box ul li:last-child{border-left:1px solid #8A98A2; border-top-right-radius:8px; border-bottom-right-radius:8px;}
+.fixed-box ul li.xunjia-touch{background:#3B4553; opacity:0.7;}
+
+.fixed-box-one ul li{width:100%;}
+.fixed-box-one ul li:first-child, .fixed-box-one ul li:last-child{border:none;}
+
+/*按钮*/
+.btn-box{width:100%; height:40px; margin-bottom:10px;}
+.btn-box a{color:#FFFFFF; text-decoration:none;}
+.btn-box ul{width:94%; height:40px; margin:0 auto; font-size:1.6rem; color:#FFFFFF;} 
+.btn-box ul li{width:49%; height:40px; line-height:40px; border-radius:8px; background:-webkit-gradient(linear, left top, left bottom, from(#77808A), to(#6B6B6B)); background:-moz-linear-gradient(top, #77808A, #6B6B6B); background:-ms-linear-gradient(top, #77808A, #6B6B6B); text-align:center;}
+.btn-box ul li.touch{background:-webkit-gradient(linear, left top, left bottom, from(#6B6B6B), to(#77808A)); background:-moz-linear-gradient(top, #6B6B6B, #77808A); background:-ms-linear-gradient(top, #6B6B6B, #77808A);}
+.btn-box ul li:first-child{float:left;}
+.btn-box ul li:last-child{float:right;}
+.btn-box ul li.xunjia-phone img{width:28px; height:28px; vertical-align:-8px;}
+.btn-box ul li.xunjia-message img{width:30px; height:20px; vertical-align:-5px}
+
+.btn-box ul li.xunjia-phone a, .btn-box ul li.xunjia-message a{display:block; width:100%; height:100%;}
+
+.btn-box-one ul li{width:100%;}
+
+
+/*返回顶部*/
+.btn-return-top{width:50px; height:50px; display:block;  position:fixed; bottom:50px; right:0; z-index:19}
+.btn-return-top div{width:50px; height:50px; background:#CCC; border-radius:8px; filter:alpha(opacity=80); -moz-opacity:0.8; opacity:0.8; position:absolute; top:0; left:0; z-index:1}
+.btn-return-top span{width:35px; height:5px; background:#FFF; display:block; position:absolute; top:10px; left:8px; z-index:2}
+.btn-return-top b{display:block; width:0; height:4px; border:6px solid #FFF; border-color:#FFF transparent; border-width: 0 17px 17px 17px; position:absolute; top:20px; left:8px; z-index:2;}
+.btn-return-top-touch div{background:#000 !important;}
+
+/*404*/
+.page-404{width:100%; height:100%; text-align:center; font-size:2.0rem; font-weight:bold; line-height:28px; padding-top:80px}
+.index-page-none, .about-us-none{height:240px; text-align:center; font-size:1.8rem; font-weight:bold; line-height:28px; padding-top:50px}
+
+@media only screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) {
+    /* iPhone 5 only */
+    .mhy-page, .xunjia-form, .xunjia-form2, .big-map, .about-us{min-height:415px;}
+}
+
+
+@media only screen and (min-device-width : 768px) {
+	.mhy-page, .xunjia-form, .xunjia-form2, .big-map, .about-us{min-height:839px;}
+}
