@@ -1,0 +1,62 @@
+<div class="header">
+	<h1 class="page-title">文本关键字列表</h1>
+</div>
+<ul class="breadcrumb">
+	<li><a href="/home">首页</a> <span class="divider">/</span></li>
+	<li class="active">文本关键字列表</li>
+</ul>
+
+<div class="container-fluid">
+	<div class="row-fluid">
+	<?php 
+	if ($this->success)
+	{
+		echo "<div class=\"alert alert-success\">
+        <a class=\"close\" data-dismiss=\"alert\">×</a>
+        <strong>{$this->success->title}</strong>  {$this->success->message}</div>";
+	}
+	?>
+		<div class="btn-toolbar">
+			<!-- <button class="btn btn-primary">
+				<i class="icon-plus"></i> <a href="/users/create">添加账号</a>
+			</button>
+			<button class="btn">Import</button>
+			<button class="btn">Export</button> 
+			<div class="btn-group"></div>-->
+		</div>
+		<div class="well">
+			<table class="table">
+				<thead>
+					<tr>
+						<th width="5%">#</th>
+						<th width="50%">关键字</th>
+						<th width="20%">提交时间</th>
+						<th width="20%">消息ID</th>
+						
+					</tr>
+				</thead>
+				<tbody>
+				<?php 
+				if ($this->rows)
+				{
+				    foreach ($this->rows as $val) {
+				?>
+					<tr>
+					    <td ><?php echo $val['id'];?></td>
+						<td style="word-break : break-all; "><?php echo $val['content'];?></td>
+						<td><?php echo date("Y-m-d",$val['createTime']);?></td>
+						<td><?php echo $val['msgId'];?></td>
+					</tr>
+				<?php
+				  } 
+				}
+				?>	
+				</tbody>
+			</table>
+		</div>
+		<?php
+         echo $this->paginationControl($this->rows, 'Sliding', 'pagination/pagination.phtml');
+         ?>
+		<?php echo $this->partial('partials/homeFooter.phtml');?>
+	</div>
+</div>

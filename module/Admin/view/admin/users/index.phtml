@@ -1,0 +1,103 @@
+<div class="header">
+	<h1 class="page-title">账号列表</h1>
+</div>
+<ul class="breadcrumb">
+	<li><a href="/home">首页</a> <span class="divider">/</span></li>
+	<li class="active">账号列表</li>
+</ul>
+
+<div class="container-fluid">
+	<div class="row-fluid">
+	<?php 
+	if ($this->success)
+	{
+		echo "<div class=\"alert alert-success\">
+        <a class=\"close\" data-dismiss=\"alert\">×</a>
+        <strong>{$this->success->title}</strong>  {$this->success->message}</div>";
+	}
+	?>
+		<div class="btn-toolbar">
+				 <a href="/users/create" class="btn btn-primary"><i class="icon-plus"></i> 添加账号</a>
+			<!-- <button class="btn">Import</button>
+			<button class="btn">Export</button> -->
+			<div class="btn-group"></div>
+		</div>
+		<div class="well">
+			<table class="table">
+				<thead>
+					<tr>
+						<th width="6%">#</th>
+						<th>用户名</th>
+						<th>名称</th>
+						<th>邮箱</th>
+						<th>添加时间</th>
+						<?php if ($this->user->power==3) echo "<th>审核</th>";?>
+						<?php if ($this->user->power==2) echo '<th>管理门店</th>';?>
+						<th style="width: 50px;">改/删</th>
+					</tr>
+				</thead>
+				<tbody>
+				<?php 
+				if ($this->rows)
+				{
+				    foreach ($this->rows as $val) {
+				?>
+					<tr id="user_<?php echo $val['id'];?>">
+						<td><?php echo $val['id'];?></td>
+						<td><?php echo $val['username'];?></td>
+						<td><?php echo $val['realname'];?></td>
+						<td><?php echo $val['email'];?></td>
+						<td><?php echo date("Y-m-d",$val['addtime']);?></td>
+						<?php if ($this->user->power==3){
+						    echo $val['power']?"<td>已审核</td>":"<td>未审核</td>";
+						} 
+						?>
+						<?php if ($this->user->power==2) echo "<td><a href=\"/shop?action=m&id={$val['id']}\">管理门店</a></td>";?>
+						<td>
+						<a href="/users/edit?id=<?php echo $val['id'];?>" title="修改编辑"><i class="icon-pencil"></i></a>&nbsp;
+						<a href="#myModal" role="button" title="删除" data-toggle="modal" onclick="reid(<?php echo $val['id'];?>);"><i class="icon-remove"></i></a>
+						</td>
+					</tr>
+				<?php
+				  } 
+				}
+				?>	
+				</tbody>
+			</table>
+		</div>
+		<?php
+         echo $this->paginationControl($this->rows, 'Sliding', 'pagination/pagination.phtml');
+         ?>
+		<div class="modal small hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		   <script type="text/javascript">
+           function reid(i){
+                 $('#delid').attr('onclick','deluser('+ i +')');
+               }
+             function deluser(i)
+             {
+                 $.post('/users/delete?id='+i,{'id':i},function(data){
+                     if (data.isok==true)
+                     {
+                    	 $('#user_'+i).hide();
+                     }
+                 },'json');
+             }
+		   </script>
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">×</button>
+				<h3 id="myModalLabel">删除账号</h3>
+			</div>
+			<div class="modal-body">
+				<p class="error-text">
+					<i class="icon-warning-sign modal-icon"></i>确定删除指定的账号？
+				</p>
+			</div>
+			<div class="modal-footer">
+				<button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+				<button class="btn btn-danger" id="delid" data-dismiss="modal" >确认</button>
+			</div>
+		</div>
+		<?php echo $this->partial('partials/homeFooter.phtml');?>
+	</div>
+</div>

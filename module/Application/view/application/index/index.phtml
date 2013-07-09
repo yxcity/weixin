@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8" />
+	<title><?php echo $this->row['sitename'];?></title>
+	<meta name="version" content="游太网络">
+	<meta name="author" content="YOUTITLE">
+	<meta name="robots" content="all">
+	<meta name="copyright" content="Copyright (c) 2013 Youtitle. All Rights Reserved.">
+	<meta name="keywords" content="<?php echo $this->row['sitename'];?>">
+	<meta name="description" content="<?php echo $this->row['sitename'];?>">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;">
+	<meta name="format-detection" content="telephone=no">
+	<link type="text/css" rel="stylesheet" href="/css/style.css">
+	<link type="text/css" rel="stylesheet" href="/css/comindex.css">
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/main.js"></script>
+</head>
+
+<body>
+	<!--头部-->
+	<header class="ts1">
+		<ul class="u_home fl">
+		  <li><a href="#" class="color:#fff"><?php echo $this->row['sitename'];?></a></li>
+		</ul>
+		<ul class="topbar fr">
+			<li><a class="icon_user" href="/user?openid=<?php echo $this->openid;?>"><i></i>我的</a></li>
+			<li><a class="icon_shang" href="/business?openid=<?php echo $this->openid;?>"><i></i>商圈</a></li>
+			<li><a class="icon_class" href="/type?openid=<?php echo $this->openid;?>"><i></i>分类</a></li>
+		</ul>
+	</header>
+	<!--主体-->
+
+<div class="main">
+			<div class="searchBanel"> <form method="post" action="/product/search?openid=<?php echo $this->openid;?>&id=<?php echo $this->id;?>"> <div class="txt" style="position:relative;"> <input type="search" id="keywords" name="keywords" placeholder="请输入商品名称" style="margin-top:2px;height:28px;width:86%;border:0px solid #F1EFF0;background-color:#F1EFF0;line-height:28px;font-size:14px"/> <input type="image" src="images/searchbtn.png" style="position:absolute;right:-13px;top:-1px;height: 33px;" /> </div> </form> </div>
+<div class="topicsTab" id="tab1">
+    <h2 style="height:32px;"><a class="on">最新上线</a><a>热门精选</a></h2>
+</div>
+<div style="width:100%; float:left; " id="tabtopics">
+    <div class="topicss">
+        <ul id="pinpai" style="float:left; width:100%; text-align:center;">        
+		<?php 
+		if ($this->rows)
+		{
+			foreach ($this->rows as $val) {
+		?>
+		<li class="zc" data-title="<?php echo $val['name'];?>-<?php echo $val['rebate'];?>">
+            <div class="zz">
+            <a href="/product?openid=<?php echo $this->openid;?>&id=<?php echo $val['id'];?>">
+            <img data-original="http://doulao.youtitle.com<?php echo $val['thumb'];?>" src="http://doulao.youtitle.com<?php echo $val['thumb'];?>" class="lazy" width="100" height="100"><br>
+<span><?php echo $val['name'];?> </span><br>
+<b class="p"><?php echo $val['rebate'];?>元</b>
+</a></div>
+            </li>         
+		<?php 
+		  }
+		}
+		?>
+        </ul>
+    </div>
+</div>
+<div class="topicsTab" id="tab2">
+    <h2><a>精品分类</a></h2>
+    <h2 style="height:32px;float:right"></h2>
+</div>
+<div class="slideEle column_list ">
+                <ul class="category_in">                   
+		<?php 
+		if ($this->type)
+		{
+			foreach ($this->type as $val) {
+		?>
+                    <li>
+                        <a class="font_b red" href="/product/list?openid=<?php echo $this->openid;?>&id=<?php echo $val['id'];?>"><b>[<?php echo $val['name'];?>]</b></a>                        
+				<?php
+        		if (isset($val['next']))
+        		{
+        		  foreach ($val['next'] as $val) {
+        		?>
+                        <a href="/product/list?openid=<?php echo $this->openid;?>&id=<?php echo $val['id'];?>"><?php echo $val['name'];?></a>                        
+        		<?php
+        		  }
+        		}
+        		?>
+                    </li>
+                       
+		<?php 
+		  }
+		}
+		?> 
+                </ul>
+</div>
+
+
+<div class="topicsTab" id="tab2">
+  <h2><a>分店导航</a></h2>
+    <h2 style="height:32px;float:right"></h2>
+</div>
+<div class="slideEle column_shop ">
+                <ul class="category_shop">                   
+		<?php 
+		if ($this->shops)
+		{
+			foreach ($this->shops as $val) {
+		?>
+                    <li>
+                        <a class="font_b red" href="/stores?openid=<?php echo $this->openid;?>&id=<?php echo $val['id'];?>"><b><?php echo str_replace('鼎中鼎澳门豆捞', '', $val['shopname']);?></b></a>                        
+                    </li>
+		<?php 
+		  }
+		}
+		?> 
+                </ul>
+</div>
+
+</div>
+<?php echo $this->partial ( 'partials/footer.phtml');?>
+</body>
+</html>
