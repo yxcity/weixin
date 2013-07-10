@@ -14,9 +14,9 @@
 return array(
     'db' => array(
         'driver' => 'Pdo',
-        'dsn'            => 'mysql:dbname=weixin;host=localhost',
+        'dsn'            => 'mysql:dbname=test;host=203.156.192.120',
         'username'       => 'test',
-        'password'       => 'test',
+        'password'       => 'test@2011',
         'driver_options' => array(
             PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
         ),
