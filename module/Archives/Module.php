@@ -1,6 +1,6 @@
 <?php
 
-namespace Admin;
+namespace Archives;
 
 use Zend\ModuleManager\ModuleManager;
 

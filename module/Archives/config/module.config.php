@@ -11,27 +11,43 @@ return array (
 		
 		'controllers' => array (
 				'invokables' => array (
-						'Admin\Controller\Home' => 'Admin\Controller\HomeController',
+						'Archives\Controller\Index' => 'Archives\Controller\IndexController',
+						'Archives\Controller\Admin' => 'Archives\Controller\AdminController',
 				) 
 		),
 		
 		'router' => array (
 				'routes' => array (
-						'msg' => array (
+						'archivesIndex' => array (
 								'type' => 'segment',
 								'options' => array (
-										'route' => '[/:lang]/msg[/:action][/:page]',
+										'route' => '[/:lang]/archives[/:action][/:page]',
 										'constraints' => array (
 												'lang' => '[a-z]{2}(-[A-Z]{2}){0,1}',
 												'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
 												'page' => '[0-9]+' 
 										),
 										'defaults' => array (
-												'controller' => 'Admin\Controller\Msg',
+												'controller' => 'Archives\Controller\Index',
 												'action' => 'index' 
 										) 
 								) 
-						) 
+						),
+						'archivesAdmin' => array (
+								'type' => 'segment',
+								'options' => array (
+										'route' => '[/:lang]/admin/archives[/:action][/:page][/]',
+										'constraints' => array (
+												'lang' => '[a-z]{2}(-[A-Z]{2}){0,1}',
+												'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+												'page' => '[0-9]+'
+										),
+										'defaults' => array (
+												'controller' => 'Archives\Controller\Admin',
+												'action' => 'index'
+										)
+								)
+						),
 				)
 				 
 		) 

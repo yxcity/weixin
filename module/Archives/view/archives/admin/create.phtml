@@ -1,0 +1,55 @@
+<div class="header">
+	<h1 class="page-title">添加分类</h1>
+</div>
+
+<ul class="breadcrumb">
+	<li><a href="/home">首页</a> <span class="divider">/</span></li>
+	<li><a href="/t">分类列表</a> <span class="divider">/</span></li>
+	<li class="active">添加分类</li>
+</ul>
+
+<div class="container-fluid">
+	<div class="row-fluid">
+<form id="tab" name="createType" method="post" action="" onsubmit="return clickType();">
+		<div class="btn-toolbar">
+		    <input type="submit" name="submit" id="submit"  class="btn btn-primary" value="提交" />
+			<div class="btn-group"></div>
+		</div>
+		<div class="well">
+			<!-- <ul class="nav nav-tabs">
+				<li class="active"><a href="#home" data-toggle="tab">基础配置</a></li>
+				<li><a href="#profile" data-toggle="tab">密码设置</a></li>
+			</ul> -->
+			
+			<div id="myTabContent" class="tab-content">
+				<div class="tab-pane active in" id="home">
+						 <div class="control-group" id="group-title">
+							<label class="control-label" for="title">标题</label>
+							<div class="controls">
+								<input type="text" value="" id="title" name="title" class="input-xlarge">
+                                <span class="help-inline" id="help-title"></span>
+							</div>
+						 </div>
+						 <div class="control-group" id="group-content">
+							<label class="control-label" for="content">内容</label>
+							<div class="controls">
+							    
+								<textarea class="span10" name="content" id="content"></textarea>
+                                <span class="help-inline" id="help-title"></span>
+							</div>
+						 </div>
+                        
+						
+				</div>
+				<!-- <div class="tab-pane fade" id="profile">
+					
+						<label>密码</label> <input type="password" name="password" class="input-xlarge">
+						<label>确认密码</label> <input type="password" name="repassword" class="input-xlarge">
+				</div> -->
+			</div>
+
+		</div>
+		<?php echo $this->partial('partials/homeFooter.phtml');?>
+</form>
+	</div>
+</div>

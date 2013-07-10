@@ -44,23 +44,21 @@ class Archives
         return $row;
     }
 
-    public function saveArchives (ArchivesVerify $archives)
+    public function save ($data,$id=null)
     {
-        $data = array(
-            'title' => $archives->title,
-            'content' => $archives->content
-        );
-        $id = $archives->id;
-        if ($id == 0) {
-            $this->tableGateway->insert($data);
-        } else {
-            if ($this->getArchivesID($id)) {
-                $this->tableGateway->update($data, array(
-                    'id' => $id
-                ));
-            } else {
-                throw new \Exception('Form id docs not exist');
-            }
+        
+        if ($id)
+        {
+        	$this->tableGateway->insert($data);
+        }else 
+        {
+        	if ($this->getArchivesID($id)) {
+        		$this->tableGateway->update($data, array(
+        				'id' => $id
+        		));
+        	} else {
+        		throw new \Exception('Form id docs not exist');
+        	}
         }
     }
 
