@@ -3,17 +3,17 @@
 namespace Archives;
 
 use Zend\ModuleManager\ModuleManager;
-
+use Zend\Db\ResultSet\ResultSet;
+use Zend\Db\TableGateway\TableGateway;
+use Archives\Model\Archives;
 
 class Module {
-	public function init(ModuleManager $moduleManager)
-	{
-		$sharedEvents=$moduleManager->getEventManager()->getSharedManager();
-		$sharedEvents->attach(__NAMESPACE__,'dispatch',function ($e){
-			$controller=$e->getTarget();
-		},100);
+	public function init(ModuleManager $moduleManager) {
+		$sharedEvents = $moduleManager->getEventManager ()->getSharedManager ();
+		$sharedEvents->attach ( __NAMESPACE__, 'dispatch', function ($e) {
+			$controller = $e->getTarget ();
+		}, 100 );
 	}
-	
 	public function getAutoloaderConfig() {
 		return array (
 				'Zend\Loader\ClassMapAutoloader' => array (
@@ -28,7 +28,19 @@ class Module {
 	}
 	public function getServiceConfig() {
 		return array (
-				'factories' => array () 
+				'factories' => array (
+						'ArchivesTableGateway' => function ($sm) {
+							$dbAdapter = $sm->get ( 'Zend\Db\Adapter\Adapter' );
+							//$resultSet = new ResultSet();
+							//$resultSet->setArrayObjectPrototype ( new ArchivesVerify () );
+							return new TableGateway ( 'archives', $dbAdapter );
+						},
+						'Archives\Model\Archives' => function ($sm) {
+							$tableGateway = $sm->get ( 'ArchivesTableGateway' );
+							$table = new Archives($tableGateway);
+							return $table;
+						} 
+				) 
 		);
 	}
 	public function getConfig() {

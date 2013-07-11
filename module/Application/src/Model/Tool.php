@@ -186,7 +186,7 @@ final class Tool
         return false;
     }
 
-    static public function uploadfile ($field, $dirname = null, $filename = null)
+    static function uploadfile ($field, $dirname = null, $filename = null)
     {
         if (! isset($field['fileField']['name']))
             return array(

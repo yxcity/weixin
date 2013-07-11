@@ -1,24 +1,27 @@
 <?php
-namespace Admin\Model;
+namespace Archives\Model;
 
 use Zend\Db\TableGateway\TableGateway;
-use Admin\Form\ArchivesVerify;
 use Zend\Paginator\Adapter\DbSelect;
 use Zend\Paginator\Paginator;
+use module\Application\src\Model\Tool;
+use Zend\Db\Sql\Select;
 
 class Archives
 {
 
     protected $tableGateway;
+    private $user;
 
     public function __construct (TableGateway $tableGateway)
     {
         $this->tableGateway = $tableGateway;
+        $this->user = Tool::getSession('auth', 'user');
     }
 
     public function getArchivesList ($page)
     {
-        $select = new \Zend\Db\Sql\Select('dede_archives');
+        $select = new Select('archives');
         $select->columns(array(
             'id',
             'title'
@@ -49,9 +52,6 @@ class Archives
         
         if ($id)
         {
-        	$this->tableGateway->insert($data);
-        }else 
-        {
         	if ($this->getArchivesID($id)) {
         		$this->tableGateway->update($data, array(
         				'id' => $id
@@ -59,6 +59,11 @@ class Archives
         	} else {
         		throw new \Exception('Form id docs not exist');
         	}
+        }else 
+        {
+        	$data['uid']=$this->user->id;
+        	$data['domain']=$this->user->domain;
+        	$this->tableGateway->insert($data);
         }
     }
 
