@@ -13,6 +13,7 @@ return array (
 				'invokables' => array (
 						'Archives\Controller\Index' => 'Archives\Controller\IndexController',
 						'Archives\Controller\Admin' => 'Archives\Controller\AdminController',
+						'Archives\Controller\Auto' => 'Archives\Controller\AutoController',
 				) 
 		),
 		
@@ -44,6 +45,21 @@ return array (
 										),
 										'defaults' => array (
 												'controller' => 'Archives\Controller\Admin',
+												'action' => 'index'
+										)
+								)
+						),
+						'auto' => array (
+								'type' => 'segment',
+								'options' => array (
+										'route' => '[/:lang]/auto[/:action][/:page][/]',
+										'constraints' => array (
+												'lang' => '[a-z]{2}(-[A-Z]{2}){0,1}',
+												'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+												'page' => '[0-9]+'
+										),
+										'defaults' => array (
+												'controller' => 'Archives\Controller\Auto',
 												'action' => 'index'
 										)
 								)
