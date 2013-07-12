@@ -69,71 +69,61 @@ if (isset($child->asset))
       <?php echo $child->user->realname;?><i class="icon-caret-down"></i> </a>
         <ul class="dropdown-menu">
           <li><a tabindex="-1" href="/users/edit?id=<?php echo $child->user->id;?>">我的账号</a></li>
-          <?php if ($child->user->power==2) echo '<li class="divider"></li><li><a tabindex="-1" href="/users/config">基本设置</a></li>';?>
+          <li class="divider"></li><li><a tabindex="-1" href="/users/config">基本设置</a></li>
           <li class="divider"></li>
           <li><a tabindex="-1" href="/<?php echo $child->user->domain;?>/logout">退出系统</a></li>
         </ul>
       </li>
     </ul>
-    <a class="brand" href="/home"><!-- <span class="first">微信</span>  --><span	class="second">
-    <?php 
-    if ($child->user->power==2) echo 'SCRM管理平台';
-    if ($child->user->power==3) echo 'SCRM管理平台';
-    ?>
-           
-    </span></a> </div>
+    <a class="brand" href="/home"><!-- <span class="first">微信</span>  --><span	class="second">SCRM管理平台</span></a> </div>
 </div>
 <div class="sidebar-nav"> 
-  <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-home"></i>控制面板<i class="icon-chevron-up"></i></a>
-  <ul id="dashboard-menu" class="nav nav-list collapse in">
+  <a href="#dashboard-menu" class="nav-header collapsed" data-toggle="collapse"><i class="icon-home"></i>控制面板<i class="icon-chevron-up"></i></a>
+  <ul id="dashboard-menu" class="nav nav-list collapse">
     <li><a href="/home">控制主页</a></li>
     <li><a href="/users/edit?id=<?php echo $child->user->id;?>">账号设置</a></li>
-    <?php if ($child->user->power>=2) echo '<li><a href="/users/config">基本配置</a></li>';?>
+    <li><a href="/users/config">基本配置</a></li>
   </ul>
-  <?php if ($child->user->power<3){?>
-  <a href="#commodity-menu" class="nav-header" data-toggle="collapse"><i class="icon-tags"></i>商品管理<i class="icon-chevron-up"></i></a>
-  <ul id="commodity-menu" class="nav nav-list collapse in">
-    <li><a href="/commodity">商品列表</a></li>
-    <?php if ($child->user->power ==2 ) echo '<li><a href="/commodity/welcome/">欢迎推荐</a></li>';?>
-    <li><a href="/commodity/create">添加商品</a></li>
-    <?php
-  if ($child->user->power ==2)
-  {
-  ?>
-    <li><a href="/t">商品分类</a></li>
-    <?php 
-  }
-  ?>
+ 
+ <a href="#archives-menu" class="nav-header" data-toggle="collapse"><i class="icon-tags"></i>内容管理<i class="icon-chevron-up"></i></a>
+  <ul id="archives-menu" class="nav nav-list collapse in">
+    <li><a href="/admin/archives?time=<?php echo time();?>">内容列表</a></li>
+    <li><a href="/admin/archives/create?time=<?php echo time();?>">添加内容</a></li>
   </ul>
   
-  <?php
-    }
-  if ($child->user->power >=2)
-  {
-  ?>
+  <a href="#auto-menu" class="nav-header" data-toggle="collapse"><i class="icon-tags"></i>车型管理<i class="icon-chevron-up"></i></a>
+  <ul id="auto-menu" class="nav nav-list collapse in">
+    <li><a href="/auto?time=<?php echo time();?>">车型列表</a></li>
+    <li><a href="/auto/create?time=<?php echo time();?>">添加车型</a></li>
+  </ul>
+  
+  <a href="#type-menu" class="nav-header" data-toggle="collapse"><i class="icon-tags"></i>管理分类<i class="icon-chevron-up"></i></a>
+  <ul id="type-menu" class="nav nav-list collapse">
+    <li><a href="/t">分类列表</a></li>
+    <li><a href="/t/create">添加分类</a></li>
+  </ul>
+  
+  <a href="#commodity-menu" class="nav-header" data-toggle="collapse"><i class="icon-tags"></i>商品管理<i class="icon-chevron-up"></i></a>
+  <ul id="commodity-menu" class="nav nav-list collapse">
+    <li><a href="/commodity">商品列表</a></li>
+    <li><a href="/commodity/welcome/">欢迎推荐</a></li>
+    <li><a href="/commodity/create">添加商品</a></li>
+  </ul>
+  
+
   <a href="#tenant-menu" class="nav-header"data-toggle="collapse"><i class="icon-user"></i>账号管理<i class="icon-chevron-up"></i></a>
-  <ul id="tenant-menu" class="nav nav-list collapse in">
+  <ul id="tenant-menu" class="nav nav-list collapse">
     <li><a href="/users">管理账号</a></li>
     <li><a href="/users/create">添加账号</a></li>
   </ul>
-  <?php 
-  }
-  if($child->user->power ==3)
-  {
-  ?>
+  
   <a href="#tenant-menu" class="nav-header"data-toggle="collapse"><i class="icon-exclamation-sign"></i>提示信息<i class="icon-chevron-up"></i></a>
-  <ul id="tenant-menu" class="nav nav-list collapse in">
+  <ul id="tenant-menu" class="nav nav-list collapse">
     <li><a href="/msg">提示列表</a></li>
     <li><a href="/msg/create">添加提示</a></li>
   </ul>
-  <?php 
-  }
-  if ($child->user->power == 2) echo '<a href="/shop" class="nav-header"><i class="icon-th-large"></i>门店管理</a>';?>
-  <?php if ($child->user->power <3 ) echo '<a href="/indent" class="nav-header"><i class="icon-shopping-cart"></i>订单管理</a>';?>
-   <?php
-  if ($child->user->power == 2)
-  {
-  ?>
+ <a href="/indent" class="nav-header"><i class="icon-shopping-cart"></i>订单管理</a>
+
   <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-pencil"></i>用户提交<!-- <span class="label label-info">+3</span> --></a>
   <ul id="accounts-menu" class="nav nav-list collapse">
     <li><a href="/keyword">文本消息</a></li>
@@ -141,11 +131,8 @@ if (isset($child->asset))
     <li><a href="/keyword/location">位置消息</a></li>
     <li><a href="/keyword/link">链接消息</a></li>
   </ul>
-  <?php 
-  }
-  ?>
-  <a href="#askboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-edit"></i>有问必答<i class="icon-chevron-up"></i></a>
-  <ul id="askboard-menu" class="nav nav-list collapse in">
+  <a href="#askboard-menu" class="nav-header  collapsed" data-toggle="collapse"><i class="icon-edit"></i>有问必答<i class="icon-chevron-up"></i></a>
+  <ul id="askboard-menu" class="nav nav-list collapse">
     <li><a href="/answers/create">提交问题</a></li>
     <li><a href="/answers">问题列表</a></li>
   </ul>

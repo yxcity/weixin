@@ -24,8 +24,8 @@ class AdminController extends AbstractActionController {
 		$viewData = $this->init ();
 		$request = $this->getRequest ();
 		if ($request->isPost ()) {
-			$post = $request->getPost ();
-			$data = array ();
+			$data = $request->getPost ();
+			unset($data['submit']);
 			$file = $request->getFiles ()->toArray ();
 			if ($file && is_array ( $file )) {
 				$thumb = Tool::uploadfile ( $file );
@@ -33,8 +33,8 @@ class AdminController extends AbstractActionController {
 					$data ['thumb'] = $thumb ['file'];
 				}
 			}
-			$data ['title'] = Tool::filter ( $post ['title'], true );
-			$data ['content'] = Tool::filter ( $post ['content'] );
+			$data ['title'] = Tool::filter ( $data ['title'], true );
+			$data ['content'] = Tool::filter ( $data ['content'] );
 			$this->getDB ()->save ( $data );
 		}
 		$viewData ['asset'] = array (
@@ -56,7 +56,8 @@ class AdminController extends AbstractActionController {
 			$this->redirect ()->toRoute ( 'archivesAdmin' );
 		$request = $this->getRequest ();
 		if ($request->isPost ()) {
-			$post = $request->getPost ();
+			$data = $request->getPost ();
+			unset($data['submit']);
 			$file = $request->getFiles ()->toArray ();
 			if ($file && is_array ( $file )) {
 				$thumb = Tool::uploadfile ( $file );
@@ -64,8 +65,8 @@ class AdminController extends AbstractActionController {
 					$data ['thumb'] = $thumb ['file'];
 				}
 			}
-			$data ['title'] = Tool::filter ( $post ['title'] );
-			$data ['content'] = Tool::filter ( $post ['content'] );
+			$data ['title'] = Tool::filter ( $data ['title'] );
+			$data ['content'] = Tool::filter ( $data ['content'] );
 			$this->getDB ()->save ( $data, $id );
 		}
 		$viewData ['row'] = $row;

@@ -45,7 +45,7 @@ class Module {
 							$dbAdapter = $sm->get ( 'Zend\Db\Adapter\Adapter' );
 							//$resultSet = new ResultSet();
 							//$resultSet->setArrayObjectPrototype ( new ArchivesVerify () );
-							return new TableGateway ( 'archives', $dbAdapter );
+							return new TableGateway ( 'auto', $dbAdapter );
 						},
 						'Archives\Model\Auto' => function ($sm) {
 							$tableGateway = $sm->get ( 'AutoTableGateway' );

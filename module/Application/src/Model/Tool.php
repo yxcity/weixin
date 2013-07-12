@@ -211,8 +211,8 @@ final class Tool
                 'msg' => $error
             );
         } else {
-            $dirname = $dirname ? $dirname : '/uploads/temp/';
-            self::mkdir(BASE_PATH . $dirname);
+        	$dirname = $dirname ? $dirname : '/uploads/temp/';
+        	self::mkdir(BASE_PATH . $dirname);
             $adapter->setDestination(BASE_PATH . $dirname);
             $filename=$field['fileField']['name'];
             if ($adapter->receive($filename)) {

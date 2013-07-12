@@ -49,7 +49,7 @@ class Archives
 
     public function save ($data,$id=null)
     {
-        
+        $data = (array)$data;
         if ($id)
         {
         	if ($this->getArchivesID($id)) {

@@ -13,6 +13,8 @@ class AutoController extends AbstractActionController {
 	}
 	
 	function indexAction() {
+		$viewData=$this->init();
+		return $viewData;
 	}
 	/**
 	 * @todo 添加车型
@@ -23,12 +25,28 @@ class AutoController extends AbstractActionController {
 		$request = $this->getRequest();
 		if ($request->isPost())
 		{
-			$post = $request->getPost();
-			$data=array();
-			$data['title']=$post['title'];
-			$data['content'] = $post['content'];
-			$this->getDB()->save($data);
+			$data = $request->getPost();
+			$file = $request->getFiles()->toArray();
+			if ($file && is_array($file))
+			{
+				$thumb = Tool::uploadfile($file);
+				if ($thumb['res'])
+				{
+					$data['thumb'] = $thumb['file'];
+				}
+			}
+			$data['title']=Tool::filter($data['title'],true);
+			$data['content'] = Tool::filter($data['content']);
+			unset($data['submit']);
+			$this->getDB()->save((array)$data);
 		}
+		$viewData ['asset'] = array (
+				'js' => array (
+						'/ueditor/ueditor.all.min.js',
+						'/ueditor/ueditor.config.js'
+				)
+		);
+		$viewData['t']=$this->getDB()->transmission();
 		return $viewData;
 	}
 	/**
@@ -43,13 +61,28 @@ class AutoController extends AbstractActionController {
 		$request = $this->getRequest();
 		if ($request->isPost())
 		{
-			$post = $request->getPost();
-			$data=array();
-			$data['title']=$post['title'];
-			$data['content']=$post['content'];
+			$data = $request->getPost();
+			unset($data['submit']);
+			$file  = $request->getFiles()->toArray();
+			if ($file)
+			{
+				$thumb = Tool::uploadfile($file);
+				if ($thumb['res'])
+				{
+					$data['thumb'] = $thumb['file'];
+				}
+			}
+			$data['title']=Tool::filter($data['title'],true);
+			$data['content']=Tool::filter($data['content']);
 			$this->getDB()->save($data,$id);
 		}
 		$viewData['row']=$row;
+		$viewData['asset'] = array (
+				'js' => array (
+						'/ueditor/ueditor.all.min.js',
+						'/ueditor/ueditor.config.js'
+				)
+		);
 		return $viewData;
 	}
 	/**
@@ -70,6 +103,7 @@ class AutoController extends AbstractActionController {
 		$viewData=array();
 		$viewData['user']=$this->user;
 		return $viewData;
+		
 	}
 	/**
 	 * @todo 链接数据库

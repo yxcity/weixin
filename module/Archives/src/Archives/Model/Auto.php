@@ -18,6 +18,7 @@ class Auto {
 	 * @param string $id
 	 */
 	function save($data, $id = null) {
+		$data=(array)$data;
 		$data['uid'] = $this->user->id;
 		$data['domain'] = $this->user->domain;
 		if ($id)
@@ -53,5 +54,14 @@ class Auto {
 	function delete($id)
 	{
 		$this->tableGateway->delete(array('id'=>$id));
+	}
+	/**
+	 * @todo 汽车变速器
+	 * @return multitype:string
+	 */
+	function transmission()
+	{
+		$t=array('1'=>'手动','2'=>'自动','3'=>'手自一体','4'=>'无极变速');
+		return $t;
 	}
 }

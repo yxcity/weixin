@@ -1,0 +1,94 @@
+<div class="header">
+	<h1 class="page-title">添加车型</h1>
+</div>
+
+<ul class="breadcrumb">
+	<li><a href="/home">首页</a> <span class="divider">/</span></li>
+	<li><a href="/admin/archives">车型列表</a> <span class="divider">/</span></li>
+	<li class="active">编辑车型</li>
+</ul>
+
+<div class="container-fluid">
+	<div class="row-fluid">
+<form id="tab" name="createAuto" method="post" action="?time=<?php echo time();?>" onsubmit="return clickType();" enctype="multipart/form-data">
+		<div class="btn-toolbar">
+		    <input type="submit" name="submit" id="submit"  class="btn btn-primary" value="提交" />
+			<div class="btn-group"></div>
+		</div>
+		<div class="well">
+			<!-- <ul class="nav nav-tabs">
+				<li class="active"><a href="#home" data-toggle="tab">基础配置</a></li>
+				<li><a href="#profile" data-toggle="tab">密码设置</a></li>
+			</ul> -->
+			
+			<div id="myTabContent" class="tab-content">
+				<div class="tab-pane active in" id="home">
+						 <div class="control-group" id="group-title">
+							<label class="control-label" for="title">车型：</label>
+							<div class="controls">
+								<input type="text" value="" id="title" name="title" class="input-xlarge">
+                                <span class="help-inline" id="help-title"></span>
+							</div>
+						 </div>
+						 <div class="control-group" id="group-thumb">
+							<label class="control-label" for="thumb">缩略图：</label>
+							<div class="controls">
+								<input type="file" value="" id="fileField" name="fileField" class="input-xlarge">
+                                <span class="help-inline" id="help-title"></span>
+							</div>
+						 </div>
+						 <div class="control-group" id="group-baojia">
+							<label class="control-label" for="baojia">报价：</label>
+							<div class="controls">
+								经销商报价：<input type="text" value="" id="jxsbj" placeholder="经销商报价" name="jxsbj" class="input-xlarge span2">
+								包牌价：<input type="text" value="" id="bpj" placeholder="包牌价" name="bpj" class="input-xlarge span1">
+								厂商指导价：<input type="text" value="" id="cszdj" placeholder="厂商指导价" name="cszdj" class="input-xlarge span2">
+                                <span class="help-inline" id="help-title"></span>
+							</div>
+						 </div>
+						 
+						 <div class="control-group" id="group-config">
+							<label class="control-label" for="config">基本配置：</label>
+							<div class="controls">
+								排&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量：<input type="text" value="" id="pl" placeholder="排量" name="pl" class="input-xlarge span2">
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;质&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;保：<input type="text" value="" id="zb" placeholder="质保" name="zb" class="input-xlarge span2"><br />
+								长/宽/高：<input type="text" value="" id="ckg" placeholder="长/宽/高" name="ckg" class="input-xlarge span2">
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;车身形式：<input type="text" value="" id="csxs" placeholder="车身形式" name="csxs" class="input-xlarge span2"><br />
+								综合工况油耗：<input type="text" value="" id="zhyh" placeholder="综合工况油耗" name="zhyh" class="input-xlarge span2"><br />
+								变速箱：<select name="bsx" id="bsx">
+								       <?php
+                                        if ($this->t)
+                                        {
+                                        	foreach ($this->t as $key=>$val) {
+                                        		echo "<option value=\"{$key}\">{$val}</option>\n";
+                                        	}
+                                        }
+                                       ?>
+								       </select>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;发动机：<input type="text" value="" id="fdj" placeholder="发动机" name="fdj" class="input-xlarge span2">
+                                <span class="help-inline" id="help-title"></span>
+                                
+							</div>
+						 </div>
+						 
+						 <div class="control-group" id="group-content">
+							<label class="control-label" for="content">详细参数：</label>
+							<div class="controls">
+							    
+								<textarea class="span10" name="content" id="content"></textarea>
+                                <span class="help-inline" id="help-title"></span>
+							</div>
+						 </div>
+				</div>
+				<!-- <div class="tab-pane fade" id="profile">
+					
+						<label>密码</label> <input type="password" name="password" class="input-xlarge">
+						<label>确认密码</label> <input type="password" name="repassword" class="input-xlarge">
+				</div> -->
+			</div>
+
+		</div>
+		<?php echo $this->partial('partials/homeFooter.phtml');?>
+</form>
+	</div>
+</div>
